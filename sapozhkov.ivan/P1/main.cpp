@@ -30,7 +30,7 @@ int main()
   if (count_num <= 1)
   {
     std::cerr << "Not enough data" << '\n';
-    return INPUT_ERROR_CODE;
+    return input_error_code;
   }
   std::cout << count << '\n';
   return 0;
