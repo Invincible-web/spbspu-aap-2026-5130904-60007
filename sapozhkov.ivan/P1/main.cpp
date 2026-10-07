@@ -3,7 +3,7 @@
 
 int main()
 {
-  const int INPUT_ERROR_CODE = 2;
+  const int input_error_code = 2;
   int current{0};
   int previous{0};
   std::size_t count{0};
@@ -22,11 +22,11 @@ int main()
     previous = current;
   }
   if (!std::cin)
-    {
-      std::cerr << "Incorrect input" << '\n';
-      std::cin.clear();
-      return 1;
-    }
+  {
+    std::cerr << "Incorrect input" << '\n';
+    std::cin.clear();
+    return 1;
+  }
   if (count_num <= 1)
   {
     std::cerr << "Not enough data" << '\n';
