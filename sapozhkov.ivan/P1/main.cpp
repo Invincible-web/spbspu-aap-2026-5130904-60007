@@ -14,11 +14,11 @@ int main()
   {
     std::cin >> current;
     if (!std::cin)
-      {
-        std::cerr << "Incorrect input" << '\n';
-        std::cin.clear();
-        return 1;
-      }
+    {
+      std::cerr << "Incorrect input" << '\n';
+      std::cin.clear();
+      return 1;
+    }
     if (current == 0)
     {
       eof = true;
