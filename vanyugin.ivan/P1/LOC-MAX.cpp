@@ -5,7 +5,7 @@
 
 int main()
 {
-  int a = {1}, b = {0}, c = {0}, r = {0}, count = {0};
+  int a = {1}, b = {0}, c = {0}, r = {0}, count = {0}, f = {3};
   while (a != 0)
   {
     std::cin >> a;
@@ -18,7 +18,7 @@ int main()
 
     if (a == 0)
     {
-      if (count > 3 && b > c)
+      if (count > f && b > c)
       {
         ++r;
       }
