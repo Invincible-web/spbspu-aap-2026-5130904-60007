@@ -1,5 +1,8 @@
 #include <iostream>
 
+
+#define ERROR_NOT_ENOUGH_DATA 2
+
 int main()
 {
   int a = {1}, b = {0}, c = {0}, r = {0}, count = {0};
@@ -46,7 +49,7 @@ int main()
   if (count == 0)
   {
     std::cerr << "Not enough data\n";
-    return 2;
+    return ERROR_NOT_ENOUGH_DATA;
   }
   else if (count == 1)
   {
