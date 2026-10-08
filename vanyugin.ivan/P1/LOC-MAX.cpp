@@ -2,8 +2,7 @@
 
 #define ERROR_NOT_ENOUGH_DATA 2
 
-int main()
-{
+int main() {
   const int inital_f_value = 3;
   int a{0}, b{0}, c{0}, r{0}, count{0}, f{inital_f_value};
   while ((std::cin >> a) && (a != 0)) {
@@ -24,7 +23,6 @@ int main()
 
     c = b;
     b = a;
-
   }
   if (std::cin.fail()) {
     std::cerr << "Unexpected input\n";
