@@ -2,9 +2,11 @@
 
 #define ERROR_NOT_ENOUGH_DATA 2
 
-int main() {
+int main()
+{
   const int inital_f_value = 3;
-  int a = {1}, b = {0}, c = {0}, r = {0}, count = {0}, f = {inital_f_value};
+  int a{1}, b{0}, c{0}, r{0}, f{inital_f_value};
+  std::size_t count{0};
   while (a != 0) {
     std::cin >> a;
 
