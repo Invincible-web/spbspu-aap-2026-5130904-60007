@@ -5,29 +5,18 @@
 int main()
 {
   const int inital_f_value = 3;
-  int a{1}, b{0}, c{0}, r{0}, count{0}, f{inital_f_value};
-  while (a != 0) {
-    std::cin >> a;
-
-    if (std::cin.fail()) {
-      std::cerr << "Unexpected input\n";
-      return 1;
-    }
-
-    if (a == 0) {
-      if (count > f && b > c) {
-        ++r;
-      }
-      break;
-    }
-
-    if (c == 0 && b != 0) {
+  int a{0}, b{0}, c{0}, r{0}, count{0}, f{inital_f_value};
+  while ((std::cin >> a) && (a != 0)) {
+    
+    ++count;
+    
+    if ((c == 0) && (b != 0)) {
       if (b > a) {
         ++r;
       }
     }
 
-    if (b != 0 && c != 0) {
+    if ((b != 0) && (c != 0)) {
       if (a < b && c < b) {
         ++r;
       }
@@ -35,8 +24,17 @@ int main()
 
     c = b;
     b = a;
-    ++count;
+
   }
+  if (std::cin.fail()) {
+    std::cerr << "Unexpected input\n";
+    return 1;
+  }
+  
+  if ((count > f) && (b > c)) {
+    ++r;
+  }
+
 
   if (count == 0) {
     std::cerr << "Not enough data\n";
