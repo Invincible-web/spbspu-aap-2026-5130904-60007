@@ -9,7 +9,7 @@ int main()
 
     if (std::cin.fail())
     {
-      std::cerr << "Unecpected input\n";
+      std::cerr << "Unexpected input\n";
       return 1;
     }
 
@@ -21,7 +21,7 @@ int main()
       }
       break;
     }
-        
+
     if (c == 0 && b != 0)
     {
       if (b > a)
@@ -34,31 +34,26 @@ int main()
     {
       if (a < b && c < b)
       {
-        ++r; 
+        ++r;
       }
     }
 
     c = b;
     b = a;
     ++count;
-
   }
-    
+
   if (count == 0)
   {
-
     std::cerr << "Not enough data\n";
     return 2;
-
-  } else if (count == 1)
+  }
+  else if (count == 1)
   {
-
     std::cout << "Ответ:" << 0 << "\n";
-
-  }else
+  }
+  else
   {
-
     std::cout << "Ответ:" << r << "\n";
- 
   }
 }
