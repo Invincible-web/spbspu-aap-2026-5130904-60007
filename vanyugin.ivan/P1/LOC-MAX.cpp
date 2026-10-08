@@ -3,8 +3,8 @@
 #define ERROR_NOT_ENOUGH_DATA 2
 
 int main() {
-  const int INITAL_F_VALUE = 3;
-  int a = {1}, b = {0}, c = {0}, r = {0}, count = {0}, f = {INITAL_F_VALUE};
+  const int inital_f_value = 3;
+  int a = {1}, b = {0}, c = {0}, r = {0}, count = {0}, f = {inital_f_value};
   while (a != 0) {
     std::cin >> a;
 
