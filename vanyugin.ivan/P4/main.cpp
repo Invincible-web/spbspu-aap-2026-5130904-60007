@@ -68,7 +68,7 @@ namespace vanyugin
       i++;
     }
 
-    return size_string - count;
+    return size_string - count + 1;
   }
 
   void deleteSpace(char* string, size_t size_string, size_t size_final_string, char* final_string)
@@ -113,7 +113,7 @@ int main()
   }
 
   size_final_string = vanyugin::final_size_string(string, size_string);
-  char final_string[size_final_string + 1];
+  char final_string[size_final_string];
 
   vanyugin::deleteSpace(string, size_string, size_final_string, final_string);
   std::cout << final_string << "\n";
