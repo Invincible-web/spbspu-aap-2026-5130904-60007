@@ -96,19 +96,21 @@ int main()
   char* string = nullptr;
   constexpr size_t bufer = 1024;
   size_t size_string{0}, size_final_string{0};
-  char* const input_string = new( std::nothrow) char[bufer];
+  char* const input_string = new (std::nothrow) char[bufer];
   bool* const check{0};
 
   string = vanyugin::inputString(bufer, input_string, size_string, check);
 
-  if (string[0] == '\0')
+  if (size_string == 0)
   {
+    delete[] input_string;
     std::cerr << "No input\n";
     return vanyugin::err_input;
   }
 
   if (check)
   {
+    delete[] input_string;
     std::cerr << "Not enough memory\n";
     return vanyugin::err_data;
   }
