@@ -21,13 +21,13 @@ namespace vanyugin
         *check = true;
         break;
       }
-      
+
       input_string[i] = token;
       i++;
     }
     return input_string;
   }
-  
+
   size_t final_size_string(char* string, size_t size_string)
   {
     size_t count{0}, i{0};
@@ -99,7 +99,7 @@ int main()
   bool* check{0};
 
   string = vanyugin::inputString(bufer, input_string, size_string, check);
-  
+
   if (string[0] == '\0')
   {
     std::cerr << "No input\n";
