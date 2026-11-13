@@ -8,9 +8,9 @@ namespace vanyugin
 
   char* inputString(size_t bufer, char* input_string, size_t& i, bool* check)
   {
-    char token;
+    char token = '0';
 
-    while(std::cin.get(token))
+    while (std::cin.get(token))
     {
       if (token == '\n')
       {
@@ -28,7 +28,7 @@ namespace vanyugin
     return input_string;
   }
 
-  size_t final_size_string(char* string, size_t size_string)
+  size_t finalSizeString(const char* string, size_t size_string)
   {
     size_t count{0}, i{0};
     while (i < size_string)
@@ -37,7 +37,7 @@ namespace vanyugin
       {
         i++;
         count++;
-        for (;i < size_string; i++)
+        for (; i < size_string; i++)
         {
           if (string[i] == ' ')
           {
@@ -52,7 +52,7 @@ namespace vanyugin
 
       if (string[i] == ' ')
       {
-        for (;i < size_string; i++)
+        for (; i < size_string; i++)
         {
           if (string[i] == ' ')
           {
@@ -71,7 +71,7 @@ namespace vanyugin
     return size_string - count + 1;
   }
 
-  void deleteSpace(char* string, size_t size_string, size_t size_final_string, char* final_string)
+  void deleteSpace(const char* string, size_t size_string, size_t size_final_string, char* final_string)
   {
     size_t i{0}, j{0};
     for (; i < size_string; i++)
@@ -81,7 +81,7 @@ namespace vanyugin
         final_string[j] = string[i];
         j++;
       }
-      else if (j != 0 && j != size_final_string && final_string[j-1] != ' ')
+      else if (j != 0 && j != size_final_string && final_string[j - 1] != ' ')
       {
         final_string[j] = string[i];
         j++;
@@ -94,9 +94,10 @@ namespace vanyugin
 int main()
 {
   char* string = nullptr;
-  size_t bufer = 1024, size_string{0}, size_final_string{0};
-  char* input_string = new(std::nothrow) char[bufer];
-  bool* check{0};
+  constexpr size_t bufer = 1024;
+  size_t size_string{0}, size_final_string{0};
+  char* const input_string = new( std::nothrow) char[bufer];
+  bool* const check{0};
 
   string = vanyugin::inputString(bufer, input_string, size_string, check);
 
@@ -112,17 +113,18 @@ int main()
     return vanyugin::err_data;
   }
 
-  size_final_string = vanyugin::final_size_string(string, size_string);
-  char* final_string = new(std::nothrow) char[size_final_string];
+  size_final_string = vanyugin::finalSizeString(string, size_string);
+  char* const final_string = new (std::nothrow) char[size_final_string];
 
   vanyugin::deleteSpace(string, size_string, size_final_string, final_string);
 
-  if (final_string == nullptr) {
+  if (final_string == nullptr)
+  {
     delete[] input_string;
     delete[] final_string;
     std::cerr << "Out of memory\n";
     return vanyugin::err_data;
-}
+  }
 
 
   std::cout << final_string << "\n";
