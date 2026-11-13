@@ -21,13 +21,13 @@ namespace vanyugin
         *check = true;
         break;
       }
-
+      
       input_string[i] = token;
       i++;
     }
     return input_string;
   }
-
+  
   size_t final_size_string(char* string, size_t size_string)
   {
     size_t count{0}, i{0};
@@ -99,7 +99,7 @@ int main()
   bool* check{0};
 
   string = vanyugin::inputString(bufer, input_string, size_string, check);
-
+  
   if (string[0] == '\0')
   {
     std::cerr << "No input\n";
@@ -113,10 +113,17 @@ int main()
   }
 
   size_final_string = vanyugin::final_size_string(string, size_string);
-  char final_string[size_final_string];
+  char* final_string = new(std::nothrow) char[size_final_string];
 
   vanyugin::deleteSpace(string, size_string, size_final_string, final_string);
+
+  if (final_string == nullptr) {
+    delete[] input_string;
+    std::cerr << "Out of memory\n";
+    return vanyugin::err_data;
+}
+
+
   std::cout << final_string << "\n";
-  delete[] input_string;
   return 0;
 }
