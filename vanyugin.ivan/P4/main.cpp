@@ -128,7 +128,6 @@ int main()
     return vanyugin::err_data;
   }
 
-
   std::cout << final_string << "\n";
   delete[] input_string;
   delete[] final_string;
