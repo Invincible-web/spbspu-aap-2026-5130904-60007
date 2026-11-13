@@ -119,11 +119,14 @@ int main()
 
   if (final_string == nullptr) {
     delete[] input_string;
+    delete[] final_string;
     std::cerr << "Out of memory\n";
     return vanyugin::err_data;
 }
 
 
   std::cout << final_string << "\n";
+  delete[] input_string;
+  delete[] final_string;
   return 0;
 }
