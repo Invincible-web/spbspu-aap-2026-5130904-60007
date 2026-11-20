@@ -63,7 +63,7 @@ int main()
 
 namespace vanyugin
 {
-    char* inputString(size_t bufer, char* input_string, size_t& i, bool* check)
+  char* inputString(size_t bufer, char* input_string, size_t& i, bool* check)
   {
     char token = '0';
 
