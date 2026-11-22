@@ -6,7 +6,7 @@ namespace vanyugin
   constexpr int err_input = 1;
   constexpr int err_memory = 2;
 
-  char* inputString(size_t bufer, char* input_string, size_t& i, bool* check);
+  char* inputString(size_t bufer, char* input_string, size_t& i, bool& check);
   size_t finalSizeString(const char* string, size_t size_string);
   void deleteSpace(const char* string, size_t size_string, size_t size_final_string, char* final_string);
 }
@@ -17,7 +17,7 @@ int main()
   constexpr size_t bufer = 1024;
   size_t size_string{0}, size_final_string{0};
   char* const input_string = new (std::nothrow) char[bufer];
-  bool* const check{0};
+  bool check = false;
 
   if (input_string == nullptr)
   {
@@ -63,8 +63,13 @@ int main()
 
 namespace vanyugin
 {
-  char* inputString(size_t bufer, char* input_string, size_t& i, bool* check)
+  char* inputString(size_t bufer, char* input_string, size_t& i, bool& check)
   {
+    if (input_string == nullptr)
+    {
+      return nullptr;
+    }
+
     char token = '0';
 
     while (std::cin.get(token))
@@ -75,7 +80,7 @@ namespace vanyugin
       }
       else if (i + 1 >= bufer)
       {
-        *check = true;
+        check = true;
         break;
       }
 
@@ -87,6 +92,11 @@ namespace vanyugin
 
   size_t finalSizeString(const char* string, size_t size_string)
   {
+    if (string == nullptr)
+    {
+      return 0;
+    }
+
     size_t count{0}, i{0};
     while (i < size_string)
     {
@@ -130,6 +140,11 @@ namespace vanyugin
 
   void deleteSpace(const char* string, size_t size_string, size_t size_final_string, char* final_string)
   {
+    if (string == nullptr || final_string == nullptr)
+    {
+      return;
+    }
+
     size_t i{0}, j{0};
     for (; i < size_string; i++)
     {
